@@ -1,0 +1,387 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Establish early connection to external domains -->
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://monorail-edge.shopifysvc.com">
+    <link rel="preconnect" href="//ajax.googleapis.com" crossorigin>
+
+    {%- liquid
+      assign main_font = settings.main_font
+      assign heading_font = settings.heading_font
+      assign nav_font = settings.nav_font
+      assign main_font_bold = main_font | font_modify: 'weight', 'bolder'
+      assign main_font_italic = main_font | font_modify: 'style', 'italic'
+      assign main_font_bold_italic = main_font_bold | font_modify: 'style', 'italic'
+    -%}
+
+    <!-- Preload onDomain stylesheets and script libraries -->
+    <link rel="preload" href="{{ 'stylesheet.css' | asset_url }}" as="style">
+    <link rel="preload" as="font" href="{{ main_font | font_url }}" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="{{ nav_font | font_url }}" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="{{ heading_font | font_url }}" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ 'eventemitter3.min.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'vendor-video.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
+
+    {% if settings.favicon -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/png">
+    {%- endif %}
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    <title>
+      {% if template == 'index' -%}
+        {%- if page_title contains 'Welcome' %}{{ shop.name }} &ndash; Welcome{% else %}{{ page_title }}{% endif -%}
+      {%- elsif template == '404' -%}
+        Page Not Found
+      {%- elsif page_title contains shop.name -%}
+        {{- page_title -}}
+      {%- else -%}
+        {{- page_title }} &ndash; {{ shop.name -}}
+      {%- endif %}
+    </title>
+    {% if page_description %}<meta name="description" content="{{ page_description }}">{% endif %}
+
+    {% render 'social-media-meta-tags' %}
+    {% render 'structured-data' %}
+    {% render 'css-variables' %}
+
+
+    <link rel="stylesheet" href="{{ 'stylesheet.css' | asset_url }}" type="text/css">
+
+    <style>
+      {{ main_font | font_face: font_display: 'swap' }}
+      {{ nav_font | font_face: font_display: 'swap' }}
+      {{ heading_font | font_face: font_display: 'swap' }}
+      {{ main_font_bold | font_face: font_display: 'swap' }}
+      {{ main_font_italic | font_face: font_display: 'swap' }}
+      {{ main_font_bold_italic | font_face: font_display: 'swap' }}
+    </style>
+
+<style>
+ .boost-sd__product-item.boost-sd__product-item--no-border.boost-sd__product-item-grid-view-layout.hide-price span.boost-sd__fallback-product-price, button.boost-sd__fallback-button {
+  display: none;
+}
+  button.boost-sd__button.boost-sd__button--border.boost-sd__button--height-fit-content.boost-sd__button--full-width.boost-sd__button--show-on-hover.boost-sd__button--hide-on-mobile.boost-sd__button--no-minwidth.boost-sd__btn-add-to-cart {
+    background: #af8c3b !important;
+}
+  .boost-sd__product-vendor {
+    display: none;
+}
+   .boost-sd__product-item.boost-sd__product-item--no-border.boost-sd__product-item-grid-view-layout.hide-price .boost-sd__product-item-grid-view-layout-image a:after {
+    content: "More Info";
+    padding: 10px;
+    background: #000;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    color: #fff;
+     z-index: 1;
+     opacity: 0;
+     transition: 0.5s ease-in-out;
+}
+     .boost-sd__product-item.boost-sd__product-item--no-border.boost-sd__product-item-grid-view-layout.hide-price:hover .boost-sd__product-item-grid-view-layout-image a:after {
+     opacity: 1;
+       transition: 0.5s ease-in-out;
+}
+  .boost-sd__product-item-grid-view-layout-image {
+    position: relative;
+}
+  .hide-price .boost-sd__product-price {
+    display: none;
+}
+.boost-sd__product-item-list-view-layout.hide-price .boost-sd__product-item-list-view-layout-info a.boost-sd__product-link:before {
+    content: "More Info";
+    padding: 10px;
+    background: #000;
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    font-weight: 600;
+    color: #fff;
+    top: 50%;
+    right: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+}
+  .boost-sd__product-item-list-view-layout.hide-price:hover .boost-sd__product-item-list-view-layout-info a.boost-sd__product-link:before {
+  opacity: 1;
+    transition: 0.5s ease-in-out;
+}
+ .boost-sd__product-item-list-view-layout.hide-price .boost-sd__product-item-list-view-layout-price {
+   display: none;
+ }
+    @media only screen and (max-width: 767px){
+     .boost-sd__product-item-list-view-layout.hide-price .boost-sd__product-item-list-view-layout-info a.boost-sd__product-link:before {
+    padding: 6px !important;
+    bottom: -40px !important;
+    width: 200px;
+    top: unset !important;
+    left: 0 !important;
+    right: unset !important;
+}
+    }
+    
+   .boost-sd__product-item-list-view-layout.hide-price .boost-sd__product-item-list-view-layout-info {
+    flex: 100% !important;
+    max-width: 100% !important;
+}
+
+   .boost-sd__product-item-list-view-layout.hide-price .boost-sd__product-item-list-view-layout-cta-buttons {
+    display: none !important;
+}
+.boost-sd__product-item.boost-sd__product-item--no-border.boost-sd__product-item-grid-view-layout.hide-price .boost-sd__button--show-on-hover {
+    display: none !important;
+}
+.boost-sd__product-item.boost-sd__product-item--no-border.boost-sd__product-item-grid-view-layout.hide-price.boost-sd__product-item-grid-view-layout-image a, .boost-sd__product-item-list-view-layout.hide-price .boost-sd__product-item-list-view-layout-info a.boost-sd__product-link {
+    position: relative;
+}
+   .boost-sd__product-item.boost-sd__product-item--no-border.boost-sd__product-item-grid-view-layout.hide-price .boost-sd__product-item:hover .boost-sd__button--show-on-hover {
+    opacity: 0 !important;
+}
+
+
+   .boost-sd__product-item.boost-sd__product-item--no-border.boost-sd__product-item-grid-view-layout.hide-price span.boost-sd__fallback-product-price {
+      display: none;
+    }
+</style>
+    
+    {% render 'boost-sd-fallback' %}
+    {{ content_for_header }}
+  </head>
+  <body class="gridlock template-{{ template | handleize }} js-slideout-toggle-wrapper js-modal-toggle-wrapper {% render 'body-classes' %} ">
+    <div class="js-slideout-overlay site-overlay"></div>
+    <div class="js-modal-overlay site-overlay"></div>
+
+    <aside class="slideout slideout__drawer-left" data-wau-slideout="mobile-navigation" id="slideout-mobile-navigation">
+      {% section 'mobile-navigation' %}
+    </aside>
+
+    <div class="site-wrap">
+      <theme-header>
+        {% sections 'header-group' %}
+      </theme-header>
+
+      <div class="page-wrap">
+        <main class="content-wrapper" role="main">
+          {% render 'mobile-search' %}
+          
+          {{ content_for_layout }}
+        </main>
+      </div>
+      <!-- /.page-wrap -->
+
+      <theme-footer>
+        {% sections 'footer-group' %}
+      </theme-footer>
+
+      <div style="display:none;" data-wau-slideout-content="search-sidebar" data-wau-slideout="search-sidebar">
+        <div class="slideout__trigger--close">
+          <button
+            class="slideout__trigger-search-sidebar js-slideout-close"
+            data-slideout-direction="right"
+            aria-label="Close sidebar"
+            tabindex="0"
+            type="button"
+            name="button"
+          >
+            <div class="icn-close"></div>
+          </button>
+        </div>
+        <div class="sidebar__search-container">
+          {%- render 'predictive-search' -%}
+        </div>
+      </div>
+    </div>
+    <!-- /.site-wrap -->
+
+    {%- if settings.cart_type == 'drawer' -%}
+      <aside class="slideout slideout__drawer-right mini-cart" data-wau-slideout="ajax-cart" id="slideout-ajax-cart">
+        {% render 'cart-mini' %}
+      </aside>
+    {% elsif settings.cart_type == 'modal_cart' %}
+      <div class="modal__container" data-wau-modal="ajax-cart" id="modal-ajax-cart">
+        <div class="modal__inner-wrapper">
+          {% render 'cart-mini' %}
+        </div>
+      </div>
+    {%- endif -%}
+    {%- if settings.quickview -%}
+      <div class="modal__container" data-wau-modal="quickview" id="modal-quickview-cart">
+        <div class="modal__inner-wrapper">
+          {%- render 'product-quickview' -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {% render 'cart-config' %}
+    <script src="{{ 'eventemitter3.min.js' | asset_url }}"></script>
+    <script src="{{ 'vendor-video.js' | asset_url }}" defer></script>
+    <script src="{{ 'theme.js' | asset_url }}"></script>
+
+    <a href="#" title="{{ 'general.scrollup.title' | t }}" class="scrollup">
+      {% render 'snip-icons',
+        wrapper: '.scrollup',
+        type: 'apollo',
+        icon: 'up-carrot',
+        classes: 'scrollup--icon',
+        size: '14px',
+        fill: 'var(--text-color)',
+        hover: 'var(--text-color)'
+      %}
+      <span>{{ 'general.scrollup.content' | t | upcase }}</span>
+    </a>
+    {% section 'mailing-popup' %}
+    <div class="clear"></div>
+
+    {%- if request.page_type contains 'customers/' or template == 'cart' -%}
+      <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+    {%- endif -%}
+    {%- if request.page_type contains 'customers/' -%}
+      <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    <script>
+      document.documentElement.className = document.documentElement.className.replace("no-js","js");
+    </script>
+
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+      <!--
+        Background of PhotoSwipe.
+        It's a separate element as animating opacity is faster than rgba().
+      -->
+      <div class="pswp__bg"></div>
+      <!-- Slides wrapper with overflow:hidden. -->
+      <div class="pswp__scroll-wrap">
+        <!--
+          Container that holds slides.
+          PhotoSwipe keeps only 3 of them in the DOM to save memory.
+          Don't modify these 3 pswp__item elements, data is added later on.
+        -->
+        <div class="pswp__container">
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+          <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            {% render 'snip-icons',
+              wrapper: '.pswp__button',
+              type: 'apollo',
+              icon: 'left-carrot',
+              classes: 'pswp__button--icon',
+              size: '12px',
+              fill: 'var(--text-color)',
+              hover: 'var(--text-color)'
+            %}
+          </button>
+          <button class="pswp__button pswp__button--close" title="Close (Esc)">
+            {% render 'snip-icons',
+              wrapper: '.pswp__button',
+              type: 'apollo',
+              icon: 'close',
+              classes: 'pswp__button--icon',
+              size: '16px',
+              fill: 'var(--text-color)',
+              hover: 'var(--text-color)'
+            %}
+          </button>
+          <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            {% render 'snip-icons',
+              wrapper: '.pswp__button',
+              type: 'apollo',
+              icon: 'right-carrot',
+              classes: 'pswp__button--icon',
+              size: '12px',
+              fill: 'var(--text-color)',
+              hover: 'var(--text-color)'
+            %}
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+
+  
+$(document).ready(function() {
+    // Function to handle adding the hide-price class
+    function updateHidePriceClass() {
+        // Iterate through each element with the class .mytags
+        $('.collect-tags .mytags').each(function() {
+            var myid = $(this).attr("id"); // Get the ID of the first div
+            var mydatatag = $(this).attr("data-tag"); // Get the data-tag value
+
+            console.log("Processing ID:", myid, "with data-tag:", mydatatag);
+
+            // Only proceed if data-tag is 'hide-price'
+            if (mydatatag === "hide-price") {
+                // Iterate through each product item
+                $('.boost-sd__product-item.boost-sd__product-item--no-border.boost-sd__product-item-grid-view-layout').each(function() {
+                    var secid = $(this).attr("id"); // Get the ID of the second div
+                    console.log("Comparing:", myid, secid);
+
+                    // If the IDs match, add the hide-price class
+                    if (myid === secid) {
+                        $(this).addClass("hide-price"); // Add class if IDs match
+                        console.log("Added hide-price to:", secid);
+                        console.log("Current classes:", $(this).attr("class")); // Log current classes
+                    }
+                });
+
+              $('.boost-sd__product-item-list-view-layout').each(function() {
+                    var secid = $(this).attr("id"); // Get the ID of the second div
+                    console.log("Comparing:", myid, secid);
+
+                    // If the IDs match, add the hide-price class
+                    if (myid === secid) {
+                        $(this).addClass("hide-price"); // Add class if IDs match
+                        console.log("Added hide-price to:", secid);
+                        console.log("Current classes:", $(this).attr("class")); // Log current classes
+                    }
+                });
+            }
+        });
+    }
+
+    // Delay the execution of the updateHidePriceClass function by 1 second (1000 milliseconds)
+    setTimeout(function() {
+        updateHidePriceClass();
+    }, 2000);
+
+    // Prevent removing hide-price class on layout switch
+    $(document).on('click', function() {
+        // Call the updateHidePriceClass function whenever any part of the document is clicked
+        setTimeout(function() {
+            updateHidePriceClass();
+        }, 50); // Short delay to ensure elements are loaded before checking
+    });
+
+    // If your app uses AJAX or some other method to load content, 
+    // you may want to call the function again after the content loads.
+    // For example, if using AJAX:
+    // $(document).on('ajaxComplete', function() {
+    //     updateHidePriceClass();
+    // });
+
+    // If you're using a specific event that signifies content is updated, use that event instead.
+});
+
+</script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+
+<div class="collect-tags">
+{% for product in collection.products %}
+  <div class="mytags" id="{{ product.id }}" data-tag="{% if product.tags contains 'hide-price' %}hide-price{% endif %}">
+  </div>
+  {% endfor %}
+
+</div>
+
+<div class="collect-tags">
+  {% if search.results %}
+    {% for result in search.results %}
+      {% if result.object_type == 'product' %}
+        <div class="mytags" id="{{ result.id }}" data-tag="{% if result.tags contains 'hide-price' %}hide-price{% endif %}">
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+</div>
+
+{% for block in section.blocks %}
+  {% case block.type %}
+    {% when 'text' %}
+  {{ block.settings.title }}
+
+      {%- when '@app' -%}
+    {% render block %}
+    {% endcase %}
+
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "My collection filter",
+    "settings": [
+      
+    ],
+
+    "blocks": [
+      {
+        "type": "@app"
+      },
+      {
+        "type": "text",
+        "name": "text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "title"
+          }
+        ]
+      }
+    ],
+
+    "presets": [
+      {
+        "name" : "My Collection filter"
+      }
+    ]
+  }
+{% endschema %}
