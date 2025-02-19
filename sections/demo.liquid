@@ -1,86 +1,203 @@
-<style>
-  .compare-section {
-    background-color: #f9f9f2;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  .grid-container {
-    display: grid;
-    grid-template-columns: 1fr repeat(4, 1fr);
-    gap: 10px;
-    text-align: center;
-    font-weight: bold;
-  }
-  .grid-header img {
-    width: 100px;
-    height: auto;
-  }
-  .grid-item {
-    background-color: #cfe3d9;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  .grid-item.alt {
-    background-color: #daf0e8;
-  }
-  .check {
-    color: green;
-  }
-  .cross {
-    color: red;
-  }
-</style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
 
-<div class="compare-section">
-  <div class="grid-container grid-header">
-    <div></div>
-    <div><img src="blush.png" alt="blush"></div>
-    <div><img src="lola.png" alt="lola"></div>
-    <div><img src="veloures.png" alt="veloures"></div>
-    <div><img src="retro_snap.png" alt="Retro SNAP CAMERAS"></div>
-  </div>
-  
-  <div class="grid-container grid-item">
-    <div>Built-in Mirror</div>
-    <div class="check">✔</div>
-    <div class="cross">✘</div>
-    <div class="cross">✘</div>
-    <div class="cross">✘</div>
-  </div>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            min-height: 100vh;
+            background-color: white;
+        }
 
-  <div class="grid-container grid-item alt">
-    <div>Image Resolution</div>
-    <div>48MP</div>
-    <div>8MP</div>
-    <div>48MP</div>
-    <div>8MP</div>
-  </div>
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
 
-  <div class="grid-container grid-item">
-    <div>Price</div>
-    <div>$64.99</div>
-    <div>$109</div>
-    <div>$135</div>
-    <div>$65</div>
-  </div>
+        .comparison-container {
+            display: flex;
+            gap: 1rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-  <div class="grid-container grid-item alt">
-    <div>Lens Zoom</div>
-    <div class="check">✔</div>
-    <div class="check">✔</div>
-    <div class="check">✔</div>
-    <div class="check">✔</div>
-  </div>
+        .block {
+            flex: 1;
+            background-color: #e8f4f1;
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
 
-  <div class="grid-container grid-item">
-    <div>Flash On-Demand / Vanity Mirror</div>
-    <div class="check">✔</div>
-    <div class="check">✔</div>
-    <div class="check">✔</div>
-    <div class="check">✔</div>
-  </div>
-</div>
+        .blush-block {
+            background-color: #0d6657;
+            color: white;
+        }
 
+        .logo {
+            height: 40px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .blush-block .feature-value {
+            color: white;
+        }
+
+        .feature-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .check-green {
+            color: #4ade80;
+            font-size: 1.5rem;
+        }
+
+        .check-black {
+            font-size: 1.5rem;
+        }
+
+        .x-mark {
+            color: #ef4444;
+            font-size: 1.5rem;
+        }
+
+        .feature-value {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-container {
+                flex-direction: column;
+            }
+            
+            .block {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <h1>BlushCam vs. The Rest</h1>
+    
+    <div class="comparison-container">
+        <!-- Features Block -->
+        <div class="block">
+            <div class="feature-row">
+                <div class="feature-title">Built-in Mirror</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-title">Image Resolution</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-title">Price</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-title">Lens Zoom</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-title">Flash On-Demand /<br>Vanity Mirror</div>
+            </div>
+        </div>
+
+        <!-- Blush Block -->
+        <div class="block blush-block">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-QaOcyyCtdsWryuvd2OVKLowWAum4mG.png" alt="Blush Logo" class="logo">
+            <div class="feature-row">
+                <div class="feature-value">✓</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-value">48MP</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-value">$64.99</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-value">✓</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-value">✓</div>
+            </div>
+        </div>
+
+        <!-- Iola Block -->
+        <div class="block">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-QaOcyyCtdsWryuvd2OVKLowWAum4mG.png" alt="Iola Logo" class="logo">
+            <div class="feature-row">
+                <div class="feature-value x-mark">✕</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-value">8MP</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-value">$109</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-value">✓</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-value">✓</div>
+            </div>
+        </div>
+
+        <!-- Veloures Block -->
+        <div class="block">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-QaOcyyCtdsWryuvd2OVKLowWAum4mG.png" alt="Veloures Logo" class="logo">
+            <div class="feature-row">
+                <div class="feature-value x-mark">✕</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-value">48MP</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-value">$135</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-value">✓</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-value">✓</div>
+            </div>
+        </div>
+
+        <!-- Retro Snap Block -->
+        <div class="block">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-QaOcyyCtdsWryuvd2OVKLowWAum4mG.png" alt="Retro Snap Logo" class="logo">
+            <div class="feature-row">
+                <div class="feature-value x-mark">✕</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-value">8MP</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-value">$65</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-value">✓</div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-value">✓</div>
+            </div>
+        </div>
+    </div>
 
 {% schema %}
   {
