@@ -1,0 +1,93 @@
+<style>
+  .compare-section {
+    background-color: #f9f9f2;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr repeat(4, 1fr);
+    gap: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .grid-header img {
+    width: 100px;
+    height: auto;
+  }
+  .grid-item {
+    background-color: #cfe3d9;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .grid-item.alt {
+    background-color: #daf0e8;
+  }
+  .check {
+    color: green;
+  }
+  .cross {
+    color: red;
+  }
+</style>
+
+<div class="compare-section">
+  <div class="grid-container grid-header">
+    <div></div>
+    <div><img src="blush.png" alt="blush"></div>
+    <div><img src="lola.png" alt="lola"></div>
+    <div><img src="veloures.png" alt="veloures"></div>
+    <div><img src="retro_snap.png" alt="Retro SNAP CAMERAS"></div>
+  </div>
+  
+  <div class="grid-container grid-item">
+    <div>Built-in Mirror</div>
+    <div class="check">✔</div>
+    <div class="cross">✘</div>
+    <div class="cross">✘</div>
+    <div class="cross">✘</div>
+  </div>
+
+  <div class="grid-container grid-item alt">
+    <div>Image Resolution</div>
+    <div>48MP</div>
+    <div>8MP</div>
+    <div>48MP</div>
+    <div>8MP</div>
+  </div>
+
+  <div class="grid-container grid-item">
+    <div>Price</div>
+    <div>$64.99</div>
+    <div>$109</div>
+    <div>$135</div>
+    <div>$65</div>
+  </div>
+
+  <div class="grid-container grid-item alt">
+    <div>Lens Zoom</div>
+    <div class="check">✔</div>
+    <div class="check">✔</div>
+    <div class="check">✔</div>
+    <div class="check">✔</div>
+  </div>
+
+  <div class="grid-container grid-item">
+    <div>Flash On-Demand / Vanity Mirror</div>
+    <div class="check">✔</div>
+    <div class="check">✔</div>
+    <div class="check">✔</div>
+    <div class="check">✔</div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Comparison table",
+    "settings": [],
+    "presets": [{
+      "name": "Comparison table",
+    }]
+  }
+{% endschema %}
