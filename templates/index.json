@@ -11,6 +11,7 @@
   "sections": {
     "2aa34553-9064-486c-a27e-0cc63ea1c113": {
       "type": "image-with-text-overlay",
+      "disabled": true,
       "settings": {
         "overlay_color": "#000000",
         "overlay_opacity": 0,
@@ -69,6 +70,7 @@
         "template--21058105114898__0136cd51-bad1-4f4f-9563-2c05d99c9c57-text-1",
         "template--21058105114898__0136cd51-bad1-4f4f-9563-2c05d99c9c57-countdown-1"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "layout": "center",
@@ -544,6 +546,7 @@
         "e4634ef5-0175-4c02-9747-0c81aef78ea1",
         "4b2bb9fc-48d5-41d1-95b5-89215310e2e0"
       ],
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "title": "Testimonials",
@@ -649,6 +652,7 @@
         },
         "template--21058105114898__603bd85b-13e2-4324-9e53-0841ae4d9a40-panel-2": {
           "type": "panel",
+          "disabled": true,
           "settings": {
             "heading": "Are your products authentic and accurately described?",
             "content": "<p>We take authenticity and accurate descriptions seriously. Sellers are required to provide detailed product information and images. If you have any doubts about an item, please reach out to the seller for more information.</p>"
@@ -656,6 +660,7 @@
         },
         "template--21058105114898__603bd85b-13e2-4324-9e53-0841ae4d9a40-panel-3": {
           "type": "panel",
+          "disabled": true,
           "settings": {
             "heading": "What payment methods do you accept?",
             "content": "<p>We accept various payment methods, including major credit cards, PayPal, and other secure online payment options.</p>"
@@ -663,6 +668,7 @@
         },
         "template--21058105114898__603bd85b-13e2-4324-9e53-0841ae4d9a40-panel-1": {
           "type": "panel",
+          "disabled": true,
           "settings": {
             "heading": "Is it safe to buy antiques and collectibles online?",
             "content": "<p>Yes, we prioritize the safety of our customers. Our customer reviews and ratings system provides transparency about the quality of products and seller reliability.</p>"
@@ -670,6 +676,7 @@
         },
         "ed63bcab-10e1-4a64-be1b-635fead41607": {
           "type": "panel",
+          "disabled": true,
           "settings": {
             "heading": "How is shipping handled, and how are shipping costs calculated?",
             "content": "<p>Shipping is handled by Shipstation, a reputable order fulfillment service. Shipping costs are computed based on the seller's location and your shipping address. You can check shipping information on the product listing page or contact the seller for specific details.</p>"
