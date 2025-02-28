@@ -400,10 +400,12 @@ data-aos="{{ settings.scroll_animation }}">
 
                 {%- unless product.has_only_default_variant -%}
                    {% for option in product.options_with_values %}
+                     <div class="updated-variants">
                      {{ option.name }}
                       {% for value in option.values %}
                         {{ value }}  
                       {% endfor %}
+                     </div>
                      {% endfor %}
                   {% endunless %}
                   {% unless product.gift_card? %}
