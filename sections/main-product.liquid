@@ -320,8 +320,27 @@ data-aos="{{ settings.scroll_animation }}">
                     %}
                   </div>
                 {% when 'product_variants' %}
-                  <div class="product__section-details__inner product__section-details__inner--{{ block.type }}" {{ block.shopify_attributes }}>
 
+
+                
+                  <div class="product__section-details__inner product__section-details__inner--{{ block.type }}" {{ block.shopify_attributes }}>
+              {%- unless product.has_only_default_variant -%}
+                   {% for option in product.options_with_values %}
+                     <div class="updated-variants">
+                       <div class="option-name">
+                     {{ option.name }}
+                       </div>
+                       <div class="option-input-block">
+                      {% for value in option.values %}
+                        <div class="option-inputs">
+                          <input type="radio" class="input value" data-value="value" data-id="{{ value.id }}">
+                        <label class="input_label" data-label="{{ value }}" data-label-id="{{ value.id }}">{{ value }}</label> 
+                        </div>
+                      {% endfor %}
+                       </div>
+                     </div>
+                     {% endfor %}
+                  {% endunless %}
                     {% assign product_form_id = 'product-form-' | append: section.id %}
                     {% form 'product', product,
                         id: product_form_id,
@@ -398,23 +417,7 @@ data-aos="{{ settings.scroll_animation }}">
                 {% when 'product_quantity' %}
 
 
-                {%- unless product.has_only_default_variant -%}
-                   {% for option in product.options_with_values %}
-                     <div class="updated-variants">
-                       <div class="option-name">
-                     {{ option.name }}
-                       </div>
-                       <div class="option-input-block">
-                      {% for value in option.values %}
-                        <div class="option-inputs">
-                          <input type="radio" class="input value" data-value="value" data-id="{{ value.id }}">
-                        <label class="input_label" data-label="{{ value }}" data-label-id="{{ value.id }}">{{ value }}</label> 
-                        </div>
-                      {% endfor %}
-                       </div>
-                     </div>
-                     {% endfor %}
-                  {% endunless %}
+  
                   {% unless product.gift_card? %}
                   <div class="product__section-details__inner product__section-details__inner--{{ block.type }}" {{ block.shopify_attributes }}>
 
