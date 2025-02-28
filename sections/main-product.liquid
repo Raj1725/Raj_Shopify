@@ -396,6 +396,15 @@ data-aos="{{ settings.scroll_animation }}">
                     {% endform %}
                   </div>
                 {% when 'product_quantity' %}
+
+
+                {%- unless product.has_only_default_variant -%}
+                   {% for option in product.options_with_values %}
+                      {% for value in option.values %}
+                        {{ value.title }}  
+                      {% endfor %}
+                     {% endfor %}
+                  {% endunless %}
                   {% unless product.gift_card? %}
                   <div class="product__section-details__inner product__section-details__inner--{{ block.type }}" {{ block.shopify_attributes }}>
 
