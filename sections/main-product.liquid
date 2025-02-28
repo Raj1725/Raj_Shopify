@@ -401,7 +401,7 @@ data-aos="{{ settings.scroll_animation }}">
                 {%- unless product.has_only_default_variant -%}
                    {% for option in product.options_with_values %}
                       {% for value in option.values %}
-                        {{ value.title }}  
+                        {{ value }}  
                       {% endfor %}
                      {% endfor %}
                   {% endunless %}
