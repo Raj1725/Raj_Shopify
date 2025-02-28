@@ -404,11 +404,13 @@ data-aos="{{ settings.scroll_animation }}">
                        <div class="option-name">
                      {{ option.name }}
                        </div>
+                       <div class="option-input-block">
                       {% for value in option.values %}
                         <div class="option-inputs">
                         {{ value }}  
                         </div>
                       {% endfor %}
+                       </div>
                      </div>
                      {% endfor %}
                   {% endunless %}
