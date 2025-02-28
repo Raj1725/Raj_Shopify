@@ -407,7 +407,8 @@ data-aos="{{ settings.scroll_animation }}">
                        <div class="option-input-block">
                       {% for value in option.values %}
                         <div class="option-inputs">
-                        {{ value }}  
+                          <input type="radio" class="input value" data-value="value" data-id="{{ value.id }}">
+                        <label class="input_label" data-label="{{ value }}" data-label-id="{{ value.id }}">{{ value }}</label> 
                         </div>
                       {% endfor %}
                        </div>
