@@ -36,6 +36,20 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "submenu_with_image_JUYY8A": {
+          "type": "submenu_with_image",
+          "settings": {
+            "menu_item": "CATALOG",
+            "nav_image": "shopify://shop_images/rack-of-womens-clothing.jpg",
+            "nav_image_position": "right",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "submenu_with_image_JUYY8A"
+      ],
       "custom_css": [
         ".grid__wrapper.cart--featured__collection {display: none;}"
       ],
