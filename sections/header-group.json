@@ -40,7 +40,7 @@
         "submenu_with_image_JUYY8A": {
           "type": "submenu_with_image",
           "settings": {
-            "menu_item": "CATALOG",
+            "menu_item": "CONTACT",
             "nav_image": "shopify://shop_images/rack-of-womens-clothing.jpg",
             "nav_image_position": "right",
             "link": ""
