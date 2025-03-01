@@ -1,1 +1,66 @@
-{"name":"Header","type":"header","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"f1e96864-a3bd-4742-8871-597d58a8a5e1":{"type":"text","settings":{"text":"<p>Get exclusive pre-auction updates when you subscribe to our newsletter!<\/p>"}}},"block_order":["f1e96864-a3bd-4742-8871-597d58a8a5e1"],"disabled":true,"settings":{"announcement_text_size":13,"top_nav":"","announcement_cart":false,"show_locale_selector":true,"show_country_selector":true,"show_flag":true}},"header":{"type":"header","custom_css":[".grid__wrapper.cart--featured__collection {display: none;}"],"settings":{"full_width_header":true,"enable_sticky_header":true,"padded_header":false,"header_border":false,"show_mobile_search":true,"header_cover":false,"header_overlay_color":"#f5f1ea","logo":"shopify:\/\/shop_images\/Longform---Website.png","logo_alt":"shopify:\/\/shop_images\/Longform---Website.png","logo_max_width":250,"mobile_logo_max_width":200,"logo_position":"above","logo_align":"center","main_nav":"main-menu","nav_hover_effect":true,"product_menu":true,"show_social_icons":false,"megamenu_text":""}}},"order":["announcement-bar","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "Header",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "f1e96864-a3bd-4742-8871-597d58a8a5e1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get exclusive pre-auction updates when you subscribe to our newsletter!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "f1e96864-a3bd-4742-8871-597d58a8a5e1"
+      ],
+      "disabled": true,
+      "settings": {
+        "announcement_text_size": 13,
+        "top_nav": "",
+        "announcement_cart": false,
+        "show_locale_selector": true,
+        "show_country_selector": true,
+        "show_flag": true
+      }
+    },
+    "header": {
+      "type": "header",
+      "custom_css": [
+        ".grid__wrapper.cart--featured__collection {display: none;}"
+      ],
+      "settings": {
+        "full_width_header": true,
+        "enable_sticky_header": true,
+        "padded_header": false,
+        "header_border": false,
+        "show_mobile_search": true,
+        "header_cover": false,
+        "header_overlay_color": "#f5f1ea",
+        "logo_max_width": 250,
+        "mobile_logo_max_width": 200,
+        "logo_position": "above",
+        "logo_align": "center",
+        "main_nav": "main-menu",
+        "nav_hover_effect": true,
+        "product_menu": false,
+        "show_social_icons": false,
+        "megamenu_text": ""
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
