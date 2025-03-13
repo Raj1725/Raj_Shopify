@@ -330,22 +330,31 @@ data-aos="{{ settings.scroll_animation }}">
                 
                   <div class="product__section-details__inner product__section-details__inner--{{ block.type }}" {{ block.shopify_attributes }}>
               {%- unless product.has_only_default_variant -%}
-                   {% for option in product.options_with_values %}
-                     <div class="updated-variants">
-                       <div class="option-name">
-                     {{ option.name }}
-                       </div>
-                       <div class="option-input-block">
-                      {% for value in option.values %}
-                        <div class="option-inputs">
-                          <input type="radio" name="{{ option.name }}" class="input value" data-value="value" data-id="{{ value.id }}">
-                        <label class="input_label" data-label="{{ value }}" data-label-id="{{ value.id }}">{{ value }}</label> 
-                        </div>
-                      {% endfor %}
-                       </div>
-                     </div>
-                     {% endfor %}
-                  {% endunless %}
+  {% for option in product.options_with_values %}
+    <div class="updated-variants">
+      <div class="option-name">
+        {{ option.name }}
+      </div>
+      <div class="option-input-block">
+        {% for value in option.values %}
+          {% assign variant = product.variants | where: 'title', value | first %}
+          <div class="option-inputs">
+            <input type="radio" 
+                   name="{{ option.name }}" 
+                   class="input value" 
+                   data-value="{{ value }}" 
+                   data-id="{{ variant.id }}" 
+                   data-image="{{ variant.image | img_url: 'master' }}">
+            <label class="input_label" data-label="{{ value }}" data-label-id="{{ variant.id }}">
+              {{ value }}
+            </label> 
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+{% endunless %}
+
                     {% assign product_form_id = 'product-form-' | append: section.id %}
                     {% form 'product', product,
                         id: product_form_id,
