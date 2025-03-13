@@ -774,7 +774,7 @@ data-aos="{{ settings.scroll_animation }}">
 
 <script>
 
- var prod = {{ product | json }}
+ var prod = {{ product.media | where: 'media_type', 'model' | json }}
    console.log("product inof" prod);
 </script>
 {% schema %}
