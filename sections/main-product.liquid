@@ -1457,8 +1457,8 @@ data-aos="{{ settings.scroll_animation }}">
 <script>
   var inputValues = document.querySelectorAll('.option-inputs input.input.value');
      let prod_json = {{ product | json }};
-  inputValues.forEach(function(elem){
-    elem.addEventListener("click", function(index)=>{
+  inputValues.forEach(function(elem, index){
+    elem.addEventListener("click", function(){
     let var_id = prod_json.variants[index].id
     console.log(var_id)
     
