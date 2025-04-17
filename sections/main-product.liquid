@@ -1459,7 +1459,7 @@ data-aos="{{ settings.scroll_animation }}">
   let main_img = document.querySelectorAll('.image-slide.carousel-cell .box-ratio img').src;
     
     let prod_json = {{ product | json }};
-    inputValues.forEach(function(elem, index, main_img){
+    inputValues.forEach(function(elem, index){
     elem.addEventListener("click", function(){
     let var_id = prod_json.variants[index].id
     let prod_featured_img = prod_json.featured_image   
