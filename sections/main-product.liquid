@@ -1462,7 +1462,7 @@ data-aos="{{ settings.scroll_animation }}">
     elem.addEventListener("click", function(){
     let var_id = prod_json.variants[index].id
     let prod_featured_img = prod_json.variants[index].featured_media.id
-    document.querySelector('.image-slide.carousel-cell').setAttribute('data-image-id') = prod_featured_img;
+    document.querySelectorAll('.image-slide.carousel-cell').setAttribute('data-image-id') = "Hiii";
   console.log(prod_featured_img)
       console.log(prod_json)
     document.querySelector('.product__section-details__inner.product__section-details__inner--product_buttons input.formVariantId').value = var_id;  
