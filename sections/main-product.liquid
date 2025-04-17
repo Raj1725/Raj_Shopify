@@ -1461,6 +1461,8 @@ data-aos="{{ settings.scroll_animation }}">
     elem.addEventListener("click", function(){
     let var_id = prod_json.variants[index].id
     console.log(var_id)
+
+    document.querySelector('input.formVariantId').value = var_id;
     
   });
   })
