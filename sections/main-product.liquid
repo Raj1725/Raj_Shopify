@@ -1460,7 +1460,9 @@ data-aos="{{ settings.scroll_animation }}">
     elem.addEventListener("click", function(){
 
     let prod_json = {{ product | json }};
-    console.log({{ product | json }})
+
+    let var_id = prod_json.variants.id
+    console.log(var_id)
     
   });
   })
