@@ -1458,6 +1458,8 @@ data-aos="{{ settings.scroll_animation }}">
   var inputValues = document.querySelectorAll('.option-inputs input.input.value');
   inputValues.forEach(function(elem){
     elem.addEventListener("click", function(){
+
+    let prod_json = {{ product | json }};
     console.log({{ product | json }})
     
   });
