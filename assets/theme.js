@@ -4450,7 +4450,7 @@ theme.ProductForm = function (context, sectionId, events, Product) {
        });
        element.addEventListener("change", function (event) {
          var selectedLabel = context.querySelector('#selected-option-' + option_position);
-         selectedLabel.innerHTML = element.value;
+         // selectedLabel.innerHTML = element.value;
          events.trigger("swatch:change:" + option_position, element.value);
        });
        events.on("variantchange:option" + option_position + ":" + element.value, select);
