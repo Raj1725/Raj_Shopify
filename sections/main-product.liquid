@@ -1456,17 +1456,14 @@ data-aos="{{ settings.scroll_animation }}">
 
 <script>
   var inputValues = document.querySelectorAll('.option-inputs input.input.value');
+  let main_img = document.querySelectorAll('.image-slide.carousel-cell .box-ratio img').src;
     
     let prod_json = {{ product | json }};
     inputValues.forEach(function(elem, index){
     elem.addEventListener("click", function(){
     let var_id = prod_json.variants[index].id
-    let prod_featured_img = prod_json.featured_image
-    let main_img = document.querySelectorAll('.image-slide.carousel-cell .box-ratio img').src;
-      main_img.forEach(function(feature_img){
-        console.log(feature_img) 
-      })
-    
+    let prod_featured_img = prod_json.featured_image   
+    console.log(main_img)     
     document.querySelector('.product__section-details__inner.product__section-details__inner--product_buttons input.formVariantId').value = var_id;  
   });
 })
