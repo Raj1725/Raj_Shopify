@@ -1454,4 +1454,9 @@ data-aos="{{ settings.scroll_animation }}">
 }
 {% endschema %}
 
-
+<script>
+  var inputValues = document.querySelectorAll('.option-inputs input.input.value');
+  inputValues.addEventListener("click", function(){
+    console.log({{ product | json }})
+  })
+</script>
