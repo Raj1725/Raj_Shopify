@@ -1461,8 +1461,8 @@ data-aos="{{ settings.scroll_animation }}">
     inputValues.forEach(function(elem, index){
     elem.addEventListener("click", function(){
     let var_id = prod_json.variants[index].id
-    let prod_featured_img = prod_json.featured_image   
-  console.log(prod_json)
+    let prod_featured_img = prod_json.images[index]   
+  console.log(prod_featured_img)
     document.querySelector('.product__section-details__inner.product__section-details__inner--product_buttons input.formVariantId').value = var_id;  
   });
 })
