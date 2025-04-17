@@ -1462,10 +1462,14 @@ data-aos="{{ settings.scroll_animation }}">
     elem.addEventListener("click", function(){
     let var_id = prod_json.variants[index].id
     let prod_featured_img = prod_json.variants[index].featured_media.id
-    document.querySelectorAll('.image-slide.carousel-cell').forEach(function(elem) {
+document.querySelectorAll('.image-slide.carousel-cell').forEach(function(elem) {
   if (elem.getAttribute('data-image-id') === prod_featured_img) {
     elem.classList.add('is-selected');
+  } else {
+    elem.classList.remove('is-selected');
   }
+});
+
 });
   console.log(prod_featured_img)
       console.log(prod_json)
