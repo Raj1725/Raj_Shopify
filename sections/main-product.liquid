@@ -1460,7 +1460,8 @@ data-aos="{{ settings.scroll_animation }}">
   inputValues.forEach(function(elem, index){
     elem.addEventListener("click", function(){
     let var_id = prod_json.variants[index].id
-    console.log(var_id)
+    let prod_featured_img = prod_json
+    console.log(prod_json)
 
     document.querySelector('.product__section-details__inner.product__section-details__inner--product_buttons input.formVariantId').value = var_id;
     
