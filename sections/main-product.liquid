@@ -1462,15 +1462,18 @@ data-aos="{{ settings.scroll_animation }}">
     elem.addEventListener("click", function(){
     let var_id = prod_json.variants[index].id
     let prod_featured_img = prod_json.variants[index].featured_media.id
-    document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
+
+      function myfunctions(items){
+            document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
           
      var attr = elem.getAttribute('data-image-id');     
-
-      console.log("here is " + attr);
+      console.log("here is " + items);
   if (elem.getAttribute('data-image-id') === prod_featured_img) {
     elem.classList.add('is-selected');
   }
 });
+      }
+
   console.log(prod_featured_img)
       console.log(prod_json)
     document.querySelector('.product__section-details__inner.product__section-details__inner--product_buttons input.formVariantId').value = var_id;  
