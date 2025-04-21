@@ -1467,7 +1467,7 @@ data-aos="{{ settings.scroll_animation }}">
             document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
           
      var attr = elem.getAttribute('data-image-id');     
-      console.log("here is " + items);
+      console.log("here is " + attr);
   if (elem.getAttribute('data-image-id') === prod_featured_img) {
     elem.classList.add('is-selected');
   }
