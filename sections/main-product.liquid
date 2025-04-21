@@ -6,7 +6,10 @@
 </style>     
 
 {%- liquid
-
+                             assign option_name = option.name | downcase
+  assign color_swatch_options = "color, colour, farbe, couleur, colore, cor" | split: ", "
+  assign current_option = "option" | append: option.position
+  assign other_options = "option1 option2 option3" | remove: current_option | strip | split: " "
 
 -%}
 {%- liquid
@@ -335,10 +338,7 @@ data-aos="{{ settings.scroll_animation }}">
                     {%- unless product.has_only_default_variant -%}
                          {% for option in product.options_with_values %}
 {% liquid 
-                             assign option_name = option.name | downcase
-  assign color_swatch_options = "color, colour, farbe, couleur, colore, cor" | split: ", "
-  assign current_option = "option" | append: option.position
-  assign other_options = "option1 option2 option3" | remove: current_option | strip | split: " "
+
 
         assign checked = ""
 
