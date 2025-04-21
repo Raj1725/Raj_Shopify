@@ -344,6 +344,14 @@ data-aos="{{ settings.scroll_animation }}">
                              </div>
                              <div class="option-input-block">
                             {% for value in option.values %}
+
+                               {%- liquid
+
+      assign image_url = value | handle | append: '.png' | file_url
+      assign css_color = value | split: ' ' | last | handle
+      assign available = false
+
+    -%}
                               {% liquid 
 
       for variant in product.variants
