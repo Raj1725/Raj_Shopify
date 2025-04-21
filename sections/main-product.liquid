@@ -1464,7 +1464,7 @@ data-aos="{{ settings.scroll_animation }}">
     let prod_featured_img = prod_json.variants[index].featured_media.id
     document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
       var attr = elem.getAttribute('data-image-id');
-      var singleattr = this.attr()
+      var singleattr = this.attr
       console.log("here is " + singleattr);
   if (elem.getAttribute('data-image-id') === prod_featured_img) {
     elem.classList.add('is-selected');
