@@ -416,7 +416,7 @@ data-aos="{{ settings.scroll_animation }}">
 
     -%}
                               <div class="option-inputs">
-                                <input type="radio" name="{{ option.name }}" class="input value" data-value="{{ value }}" data-id="{{ value.id }}" {{ checked }}>
+                                <input type="radio" name="{{ option.name }}" data-position="{{ option.position }}" class="input value" data-value="{{ value }}" data-id="{{ value.id }}" {{ checked }}>
                               <label class="input_label" data-label="{{ value }}" data-label-id="{{ value.id }}">{{ value }}</label> 
                               </div>
                             {% endfor %}
