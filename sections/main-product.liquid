@@ -1463,7 +1463,7 @@ data-aos="{{ settings.scroll_animation }}">
     let var_id = prod_json.variants[index].id
     let prod_featured_img = prod_json.variants[index].featured_media.id
 
-      function myfunctions(items){
+      function myfunctions(prod_json){
             document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
           
      var attr = elem.getAttribute('data-image-id');     
@@ -1474,7 +1474,7 @@ data-aos="{{ settings.scroll_animation }}">
 });
       }
       
-myfunctions(items);
+myfunctions(prod_json);
       
   console.log(prod_featured_img)
       console.log(prod_json)
