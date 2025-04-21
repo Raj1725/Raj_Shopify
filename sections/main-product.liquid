@@ -1471,6 +1471,8 @@ data-aos="{{ settings.scroll_animation }}">
       console.log("here is " + attr);
   if (elem.getAttribute('data-image-id') == prod_featured_img) {
     elem.classList.add('is-selected');
+  }else{
+    elem.classList.remove('is-selected');
   }
 });
 
