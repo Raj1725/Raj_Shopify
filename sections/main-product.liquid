@@ -16,16 +16,7 @@ assign contactFormID = 'contact--form__' | append: section.id
   assign show_policies = settings.show_policies
   assign show_payment_button = settings.product_show_payment_button
   assign current_variant = product.selected_or_first_available_variant
-  assign option_name = option.name | downcase
-  assign color_swatch_options = "color, colour, farbe, couleur, colore, cor" | split: ", "
-  assign current_option = "option" | append: option.position
-  assign other_options = "option1 option2 option3" | remove: current_option | strip | split: " "
 
-        assign checked = ""
-
-      if current_variant[current_option] == value
-        assign checked = 'checked="checked"'
-      endif
   assign tabs_active = false
   assign product_description_active = false
 
@@ -343,6 +334,19 @@ data-aos="{{ settings.scroll_animation }}">
                   <div class="product__section-details__inner product__section-details__inner--{{ block.type }}" {{ block.shopify_attributes }}>
                     {%- unless product.has_only_default_variant -%}
                          {% for option in product.options_with_values %}
+{% liquid 
+                             assign option_name = option.name | downcase
+  assign color_swatch_options = "color, colour, farbe, couleur, colore, cor" | split: ", "
+  assign current_option = "option" | append: option.position
+  assign other_options = "option1 option2 option3" | remove: current_option | strip | split: " "
+
+        assign checked = ""
+
+      if current_variant[current_option] == value
+        assign checked = 'checked="checked"'
+      endif
+
+   %}
                            <div class="updated-variants">
                              <div class="option-name">
                            {{ option.name }}
