@@ -339,12 +339,17 @@ data-aos="{{ settings.scroll_animation }}">
                          {% for option in product.options_with_values %}
 {% liquid 
 
+      for variant in product.variants
+        unless variant[current_option] == value
+          continue
+        endunless
 
         assign checked = ""
 
       if current_variant[current_option] == value
         assign checked = 'checked="checked"'
       endif
+         endfor
 
    %}
                            <div class="updated-variants">
