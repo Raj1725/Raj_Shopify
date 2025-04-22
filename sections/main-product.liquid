@@ -1542,25 +1542,6 @@ data-aos="{{ settings.scroll_animation }}">
     
     let var_id = prod_json.variants[index].id
     let prod_featured_img = prod_json.variants[index].featured_media.id
-    let var_itm = prod_json.variants[index].options
-      console.log(var_itm);
-      
-function getVariantId(variants, variant) {
-  return variants.find(variant => {
-    return variant.options.every((opt, i) => opt === variant[i]);
-  })?.id;
-}
-
-
-variant = prod_json.variants.find((variant) => {
-        return !variant.options.map((option, index) => {
-          return var_itm[index] === option;
-        }).includes(false);
-      });
-let variantId = getVariantId(prod_json.variants, variant);
-
-console.log("Variant ID:", variantId);
-      
 
 
 function replaceUrlParameter(url, paramName, paramValue) {
