@@ -1541,7 +1541,7 @@ data-aos="{{ settings.scroll_animation }}">
     elem.addEventListener("click", function(){
     let var_id = prod_json.variants[index].id
     let prod_featured_img = prod_json.variants[index].featured_media.id
-    let prod_url = window.location.href + "?variant=" + var_id;
+
 
       function replaceUrlParameter(url, paramName, paramValue) {
   const urlObject = new URL(url);
@@ -1550,8 +1550,8 @@ data-aos="{{ settings.scroll_animation }}">
   urlObject.search = params.toString();
   return urlObject.toString();
 }
-let url = "https://example.com/path?param1=value1&param2=value2";
-let newUrl = replaceUrlParameter(url, "param1", "newValue");
+    let prod_url = window.location.href + "?variant=" + var_id;
+let newUrl = replaceUrlParameter(prod_url, "?variant=", var_id);
 console.log(newUrl); // Output: https://example.com/path?param1=newValue&param2=value2
       
             document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
