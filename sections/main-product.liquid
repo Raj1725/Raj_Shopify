@@ -1548,7 +1548,7 @@ data-aos="{{ settings.scroll_animation }}">
     let var_id = prod_json.variants[index].id
 
       var allInputValues = document.querySelectorAll('.option-inputs input.input.value:checked').forEach(function(items){
-              let varOptions = prod_json.variants[index].title.split(" / ");
+              let varOptions = prod_json.variants.indexOf.title.split(" / ");
                 var items = items.getAttribute('data-value')
         let filtervarOptions = varOptions.filter(varOption => varOption == items);
         console.log(filtervarOptions);
