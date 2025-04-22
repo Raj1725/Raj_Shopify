@@ -1544,7 +1544,7 @@ data-aos="{{ settings.scroll_animation }}">
     elem.addEventListener("click", function(){
     
     let var_id = prod_json.variants[index].id
-      let varOptions = prod_json.variants.options
+      let varOptions = prod_json.variants[index].title
       console.log(varOptions);
     let prod_featured_img = prod_json.variants[index].featured_media.id
   var allInputValues = document.querySelectorAll('.option-inputs input.input.value:checked').forEach(function(items){
