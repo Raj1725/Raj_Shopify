@@ -1542,7 +1542,7 @@ data-aos="{{ settings.scroll_animation }}">
     
     let var_id = prod_json.variants[index].id
     let prod_featured_img = prod_json.variants[index].featured_media.id
-    let var_itm = prod_json.variants[index].title
+    let var_itm = prod_json.variants[index].options
       console.log(var_itm);
       
 function getVariantId(variants, variant) {
@@ -1554,7 +1554,7 @@ function getVariantId(variants, variant) {
 
 variant = prod_json.variants.find((variant) => {
         return !variant.options.map((option, index) => {
-          return options[index] === option;
+          return var_itm[index] === option;
         }).includes(false);
       });
 let variantId = getVariantId(prod_json.variants, variant);
