@@ -1543,7 +1543,7 @@ data-aos="{{ settings.scroll_animation }}">
     let prod_featured_img = prod_json.variants[index].featured_media.id
     
 
-      function replaceUrlParameter(url, paramName, paramValue) {
+function replaceUrlParameter(url, paramName, paramValue) {
   const urlObject = new URL(url);
   const params = new URLSearchParams(urlObject.search);
   params.set(paramName, paramValue);
@@ -1551,9 +1551,8 @@ data-aos="{{ settings.scroll_animation }}">
   return urlObject.toString();
 }
 let prod_url = window.location.href + "?variant=" + var_id;
-let url = "https://example.com/path?param1=value1&param2=value2";
 let newUrl = replaceUrlParameter(prod_url, "variant", var_id);
-console.log(newUrl); // Output: https://example.com/path?param1=newValue&param2=value2
+console.log(newUrl); 
       
             document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
           
@@ -1566,8 +1565,6 @@ console.log(newUrl); // Output: https://example.com/path?param1=newValue&param2=
   }
 });
 
-      
-  console.log(prod_url);
       console.log(prod_json)
     document.querySelector('.product__section-details__inner.product__section-details__inner--product_buttons input.formVariantId').value = var_id;  
   });
