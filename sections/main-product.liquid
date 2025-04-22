@@ -1543,6 +1543,8 @@ data-aos="{{ settings.scroll_animation }}">
     let prod_featured_img = prod_json.variants[index].featured_media.id
     let prod_option = prod_json.variants[index].title
 
+      console.log(prod_option);
+
 function replaceUrlParameter(url, paramName, paramValue) {
   const urlObject = new URL(url);
   const params = new URLSearchParams(urlObject.search);
