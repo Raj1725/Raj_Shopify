@@ -1544,23 +1544,17 @@ data-aos="{{ settings.scroll_animation }}">
     let prod_featured_img = prod_json.variants[index].featured_media.id
 
 
-   var attr = prod_json.variants[index].title;  
-console.log(attr);
-      let selectedSize = elem.getAttribute('data-value');
-    let selectedColor = elem.getAttribute('data-value');
+function getVariantId(variants, selectedOptions) {
+  return variants.find(variant => {
+    return variant.options.every((opt, i) => opt === selectedOptions[i]);
+  })?.id;
+}
 
-  console.log(selectedSize, selectedColor)
-    
-    let matchingVariant = prod_json.variants.find(variant => {
-      return variant.option1 === selectedSize && variant.option2 === selectedColor;
-    });
-    
-    if (matchingVariant) {
-      console.log("Variant ID:", matchingVariant.id);
-    } else {
-      console.log("No matching variant found!");
-    }
+// Usage
+let selectedOptions = prod_json.variants[index].options; // this order should match the product options
+let variantId = getVariantId(prod_json.variants, selectedOptions);
 
+console.log("Variant ID:", variantId);
       
 
 
