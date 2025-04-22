@@ -1540,7 +1540,7 @@ data-aos="{{ settings.scroll_animation }}">
     elem.addEventListener("click", function(){
     let var_id = prod_json.variants[index].id
     let prod_featured_img = prod_json.variants[index].featured_media.id
-    let prod_url = window.location.href?variant=var_id;
+    let prod_url = window.location.href + ?variant=var_id;
     
             document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
           
