@@ -1534,6 +1534,12 @@ data-aos="{{ settings.scroll_animation }}">
 {% endschema %}
 
 <script>
+
+
+  var allInputValues = document.querySelectorAll('.option-inputs input.input.value').forEach(function(items){
+    var items = items.getAttribute('data-value')
+    console.log(items);
+  })
   var inputValues = document.querySelectorAll('.option-inputs input.input.value');
     
     let prod_json = {{ product | json }};
