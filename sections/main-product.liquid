@@ -1546,8 +1546,8 @@ data-aos="{{ settings.scroll_animation }}">
 
    var attr = prod_json.variants[index].title;  
 console.log(attr);
-      let selectedSize = document.querySelector('input.input.value[name="Size"]').getAttribute('data-value');
-    let selectedColor = document.querySelector('input.input.value[name="Color"]').getAttribute('data-value');
+      let selectedSize = elem.getAttribute('data-value');
+    let selectedColor = elem.getAttribute('data-value');
 
   console.log(selectedSize, selectedColor)
     
