@@ -1544,6 +1544,7 @@ data-aos="{{ settings.scroll_animation }}">
     let prod_featured_img = prod_json.variants[index].featured_media.id
     let var_itm = prod_json.variants[index].title
       console.log(var_itm);
+      
 function getVariantId(variants, selectedOptions) {
   return variants.find(variant => {
     return variant.options.every((opt, i) => opt === selectedOptions[i]);
