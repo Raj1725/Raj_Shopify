@@ -1545,9 +1545,9 @@ data-aos="{{ settings.scroll_animation }}">
     let var_itm = prod_json.variants[index].title
       console.log(var_itm);
       
-function getVariantId(variants, selectedOptions) {
+function getVariantId(variants, variant) {
   return variants.find(variant => {
-    return variant.options.every((opt, i) => opt === selectedOptions[i]);
+    return variant.options.every((opt, i) => opt === variant[i]);
   })?.id;
 }
 
