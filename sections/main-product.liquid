@@ -1550,7 +1550,7 @@ data-aos="{{ settings.scroll_animation }}">
   urlObject.search = params.toString();
   return urlObject.toString();
 }
-    let prod_url = window.location.href;
+    let prod_url = window.location.href + "?variant=" + var_id;
 let newUrl = replaceUrlParameter(prod_url, "?variant=", var_id);
 // console.log(newUrl); 
       
