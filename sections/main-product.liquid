@@ -1550,6 +1550,7 @@ function replaceUrlParameter(url, paramName, paramValue) {
   urlObject.search = params.toString();
   return urlObject.toString();
 }
+let newUrlname = [];
 let prod_url = window.location.href + "?variant=" + var_id;
 let newUrl = replaceUrlParameter(prod_url, "variant", var_id);
 console.log(newUrl); 
