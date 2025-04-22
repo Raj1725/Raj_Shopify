@@ -18,6 +18,7 @@
         },
         "product_variants": {
           "type": "product_variants",
+          "disabled": true,
           "settings": {}
         },
         "product_sku": {
