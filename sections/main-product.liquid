@@ -1542,7 +1542,9 @@ data-aos="{{ settings.scroll_animation }}">
     let var_id = prod_json.variants[index].id
     let prod_featured_img = prod_json.variants[index].featured_media.id
     let prod_url = window.location.href + "?variant=" + var_id;
-
+let url = "https://example.com/path?param1=value1&param2=value2";
+let newUrl = replaceUrlParameter(url, "param1", "newValue");
+console.log(newUrl); // Output: https://example.com/path?param1=newValue&param2=value2
       
             document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
           
