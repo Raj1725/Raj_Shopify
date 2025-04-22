@@ -1551,7 +1551,7 @@ function getVariantId(variants, selectedOptions) {
 }
 
 // Usage
-let selectedOptions = prod_json.variants.options; // this order should match the product options
+let selectedOptions = prod_json.variants[index].options; // this order should match the product options
 let variantId = getVariantId(prod_json.variants, selectedOptions);
 
 console.log("Variant ID:", variantId);
