@@ -1550,10 +1550,13 @@ function getVariantId(variants, selectedOptions) {
   })?.id;
 }
 
-// Usage
-let selectedOptions = prod_json.variants[index].options; 
 
-let variantId = getVariantId(prod_json.variants, selectedOptions);
+variant = Product.variants.find((variant) => {
+        return !variant.options.map((option, index) => {
+          return options[index] === option;
+        }).includes(false);
+      });
+let variantId = getVariantId(prod_json.variants, variant);
 
 console.log("Variant ID:", variantId);
       
