@@ -1554,7 +1554,8 @@ const newTitle = 'New Page Title';
 let prod_url = window.location.href + "?variant=" + var_id;
 let newUrl = replaceUrlParameter(prod_url, "variant", var_id);
 console.log(newUrl); 
-window.history.pushState(newUrl, newTitle);     
+window.history.replaceState(newUrl, newTitle); 
+      
             document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
           
      var attr = elem.getAttribute('data-image-id');     
