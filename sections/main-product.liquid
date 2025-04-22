@@ -1552,7 +1552,7 @@ data-aos="{{ settings.scroll_animation }}">
 }
     let prod_url = window.location.href + "?variant=" + var_id;
 let newUrl = replaceUrlParameter(prod_url, "?variant=", var_id);
-console.log(newUrl); 
+// console.log(newUrl); 
       
             document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
           
@@ -1565,6 +1565,8 @@ console.log(newUrl);
   }
 });
 
+      
+  console.log(prod_url);
       console.log(prod_json)
     document.querySelector('.product__section-details__inner.product__section-details__inner--product_buttons input.formVariantId').value = var_id;  
   });
