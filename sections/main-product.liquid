@@ -1544,7 +1544,8 @@ data-aos="{{ settings.scroll_animation }}">
     let prod_featured_img = prod_json.variants[index].featured_media.id
 
 var inputOption = document.querySelectorAll('input.input.value').forEach(function(myelem){
-   var attr = elem.getAttribute('data-value');    
+   var attr = elem.getAttribute('data-value');  
+  console.log(attr)
       let selectedSize = attr;
     let selectedColor = attr;
 
