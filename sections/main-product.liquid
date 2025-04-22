@@ -1536,7 +1536,7 @@ data-aos="{{ settings.scroll_animation }}">
 <script>
 
 
-  var allInputValues = document.querySelectorAll('.option-inputs input.input.value').forEach(function(items){
+  var allInputValues = document.querySelectorAll('.option-inputs input.input.value[checked]').forEach(function(items){
     var items = items.getAttribute('data-value')
     console.log(items);
   })
