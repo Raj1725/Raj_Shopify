@@ -1543,12 +1543,12 @@ data-aos="{{ settings.scroll_animation }}">
     let prod_featured_img = prod_json.variants[index].featured_media.id
     
 
-function updateUrlParameter(key, value) {
+function updateUrlParameter(updateurl) {
   let prod_url = window.location.href + "?variant=" + var_id;
 
   window.history.pushState(prod_url);
 }
-
+updateUrlParameter(updateurl) 
       
             document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
           
