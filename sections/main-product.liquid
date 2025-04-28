@@ -1542,37 +1542,36 @@ data-aos="{{ settings.scroll_animation }}">
     let prod_json = {{ product | json }};
     inputValues.forEach(function(elem, index){
     elem.addEventListener("click", function(){
-
-    let prod_featured_img = prod_json.variants[index].featured_media.id
+      console.log(prod_json)
+    // let prod_featured_img = prod_json.variants[index].featured_media.id
     
-    let var_id = prod_json.variants[index].id
+    // let var_id = prod_json.variants[index].id
 
-      function replaceUrlParameter(url, paramName, paramValue) {
-        const urlObject = new URL(url);
-        const params = new URLSearchParams(urlObject.search);
-        params.set(paramName, paramValue);
-        urlObject.search = params.toString();
-        return urlObject.toString();
-      }
+    //   function replaceUrlParameter(url, paramName, paramValue) {
+    //     const urlObject = new URL(url);
+    //     const params = new URLSearchParams(urlObject.search);
+    //     params.set(paramName, paramValue);
+    //     urlObject.search = params.toString();
+    //     return urlObject.toString();
+    //   }
       
-      const newTitle = [];
-      let prod_url = window.location.href + "?variant=" + var_id;
-      let newUrl = replaceUrlParameter(prod_url, "variant", var_id);
-      console.log(newUrl); 
-      window.history.replaceState(null, newTitle, newUrl);
+    //   const newTitle = [];
+    //   let prod_url = window.location.href + "?variant=" + var_id;
+    //   let newUrl = replaceUrlParameter(prod_url, "variant", var_id);
+    //   console.log(newUrl); 
+    //   window.history.replaceState(null, newTitle, newUrl);
       
-      document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
+    //   document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
           
 
-      if (elem.getAttribute('data-image-id') == prod_featured_img) {
-          elem.classList.add('is-selected');
-      }else{
-          elem.classList.remove('is-selected');
-        }
-      });
+    //   if (elem.getAttribute('data-image-id') == prod_featured_img) {
+    //       elem.classList.add('is-selected');
+    //   }else{
+    //       elem.classList.remove('is-selected');
+    //     }
+    //   });
 
-      console.log(prod_json)
-    document.querySelector('.product__section-details__inner.product__section-details__inner--product_buttons input.formVariantId').value = var_id;  
+    // document.querySelector('.product__section-details__inner.product__section-details__inner--product_buttons input.formVariantId').value = var_id;  
   });
 })
   
