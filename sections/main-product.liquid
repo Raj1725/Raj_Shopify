@@ -1534,42 +1534,58 @@ data-aos="{{ settings.scroll_animation }}">
 {% endschema %}
 
 <script>
-
-
-
   var inputValues = document.querySelectorAll('.option-inputs input.input.value');
     
     let prod_json = {{ product | json }};
     inputValues.forEach(function(elem, index){
     elem.addEventListener("click", function(){
-
-    let prod_featured_img = prod_json.variants[index].featured_media.id
     
     let var_id = prod_json.variants[index].id
-
-      function replaceUrlParameter(url, paramName, paramValue) {
-        const urlObject = new URL(url);
-        const params = new URLSearchParams(urlObject.search);
-        params.set(paramName, paramValue);
-        urlObject.search = params.toString();
-        return urlObject.toString();
-      }
+    let prod_featured_img = prod_json.variants[index].featured_media.id
+    let var_itm = prod_json.variants[index].title
+      console.log(var_itm);
       
-      const newTitle = [];
-      let prod_url = window.location.href + "?variant=" + var_id;
-      let newUrl = replaceUrlParameter(prod_url, "variant", var_id);
-      console.log(newUrl); 
-      window.history.replaceState(null, newTitle, newUrl);
-      
-      document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
-          
+function getVariantId(variants, variant) {
+  return variants.find(variant => {
+    return variant.options.every((opt, i) => opt === variant[i]);
+  })?.id;
+}
 
-      if (elem.getAttribute('data-image-id') == prod_featured_img) {
-          elem.classList.add('is-selected');
-      }else{
-          elem.classList.remove('is-selected');
-        }
+
+variant = prod_json.variants.find((variant) => {
+        return !variant.options.map((option, index) => {
+          return options[index] === option;
+        }).includes(false);
       });
+let variantId = getVariantId(prod_json.variants, variant);
+
+console.log("Variant ID:", variantId);
+      
+
+
+function replaceUrlParameter(url, paramName, paramValue) {
+  const urlObject = new URL(url);
+  const params = new URLSearchParams(urlObject.search);
+  params.set(paramName, paramValue);
+  urlObject.search = params.toString();
+  return urlObject.toString();
+}
+const newTitle = [];
+let prod_url = window.location.href + "?variant=" + var_id;
+let newUrl = replaceUrlParameter(prod_url, "variant", var_id);
+console.log(newUrl); 
+window.history.replaceState(null, newTitle, newUrl);
+      
+            document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
+          
+     // var attr = elem.getAttribute('data-image-id');     
+      //console.log("here is " + attr);
+  if (elem.getAttribute('data-image-id') == prod_featured_img) {
+    elem.classList.add('is-selected');
+  }else{
+    elem.classList.remove('is-selected');
+  }
+});
 
       console.log(prod_json)
     document.querySelector('.product__section-details__inner.product__section-details__inner--product_buttons input.formVariantId').value = var_id;  
