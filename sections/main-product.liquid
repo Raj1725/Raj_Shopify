@@ -1547,6 +1547,10 @@ data-aos="{{ settings.scroll_animation }}">
     
     let var_id = prod_json.variants
 
+      let var__id = var_id.forEach(function(item){
+        item.id
+      })
+
       function replaceUrlParameter(url, paramName, paramValue) {
         const urlObject = new URL(url);
         const params = new URLSearchParams(urlObject.search);
