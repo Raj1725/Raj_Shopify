@@ -1584,7 +1584,8 @@ greet(name);
 processArrayObjects(prod_json, (arrayObject) => {
   console.log("Found array object:", arrayObject);
   var arrayOptions = arrayObject.options
-  console.log(greet(name));
+  var arrayNames = greet(name);
+  console.log(arrayNames);
 
   });
       
