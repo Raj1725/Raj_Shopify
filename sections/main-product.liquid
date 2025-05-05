@@ -1545,22 +1545,17 @@ data-aos="{{ settings.scroll_animation }}">
       console.log(prod_json)
 
     
+    
 var inputValuess = document.querySelectorAll('.option-inputs input.input.value:checked'); 
 
-      
-function myValues() {
-  const values = [];
+function greet(name) {      
+inputValuess.forEach(function(myelemt){
+  var myInputValue = myelemt.getAttribute('data-value');
+    console.log(myInputValue)
+})
+}      
+greet(myInputValue);
 
-  inputValuess.forEach(function(myelemt) {
-    var myInputValue = myelemt.getAttribute('data-value');
-    values.push(myInputValue);
-  });
-
-  return values;
-}
-
-// Call the function
-console.log(myValues());
   
 
 
