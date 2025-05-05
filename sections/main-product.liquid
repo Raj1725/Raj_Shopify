@@ -1544,8 +1544,13 @@ data-aos="{{ settings.scroll_animation }}">
     elem.addEventListener("click", function(){
       console.log(prod_json)
 
-var myInputValue = elem.getAttribute('data-value');
-      console.log(myInputValue)
+
+elem.forEach(function(myelemt){
+  var myInputValue = myelemt.getAttribute('data-value');
+        console.log(myInputValue)
+})
+      
+
 
 function processArrayObjects(obj, callback) {
   for (const key in obj) {
