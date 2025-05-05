@@ -1584,7 +1584,7 @@ greet(name);
 processArrayObjects(prod_json, (arrayObject) => {
   console.log("Found array object:", arrayObject);
   var arrayOptions = arrayObject.options
-  if(name == arrayOptions){
+  if(name === arrayOptions){
     console.log("Jii")
   }
   });
