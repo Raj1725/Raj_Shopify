@@ -1565,8 +1565,11 @@ function processArrayObjects(obj, callback) {
 }
 
 
+
 processArrayObjects(prod_json, (arrayObject) => {
   console.log("Found array object:", arrayObject);
+  var arrayOptions = arrayObject.options
+console.log(arrayOptions)
   });
       
 var var_id = prod_json.variants[index].id
