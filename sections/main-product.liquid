@@ -1545,6 +1545,7 @@ data-aos="{{ settings.scroll_animation }}">
       console.log(prod_json)
       
 var var_id = prod_json.variants[index].id
+      
       function replaceUrlParameter(url, paramName, paramValue) {
         const urlObject = new URL(url);
         const params = new URLSearchParams(urlObject.search);
@@ -1569,7 +1570,7 @@ var var_id = prod_json.variants[index].id
         }
       });
 
-    // document.querySelector('.product__section-details__inner.product__section-details__inner--product_buttons input.formVariantId').value = var_id;  
+    document.querySelector('.product__section-details__inner.product__section-details__inner--product_buttons input.formVariantId').value = var_id;  
   });
 })
   
