@@ -1545,17 +1545,21 @@ data-aos="{{ settings.scroll_animation }}">
       console.log(prod_json)
 
     
-    
 var inputValuess = document.querySelectorAll('.option-inputs input.input.value:checked'); 
 
 function greet(name) {      
 inputValuess.forEach(function(myelemt){
   var myInputValue = myelemt.getAttribute('data-value');
     console.log(myInputValue)
+
+      processArrayObjects(prod_json, (arrayObject) => {
+      if (arrayObject.options.includes(myInputValue)) {
+        console.log("Match found! ID is:", arrayObject.id);
+      }
+    });
 })
 }      
 greet(name);
-
   
 
 
