@@ -1543,14 +1543,13 @@ data-aos="{{ settings.scroll_animation }}">
     inputValues.forEach(function(elem, index){
     elem.addEventListener("click", function(){
       console.log(prod_json)
-    // let prod_featured_img = prod_json.media[index].id
-    
+      
     let var_id = prod_json.variants
 
-      let var__ids = var_id.forEach(function(item){
+      let var__id = var_id.forEach(function(item){
         item.id
 
-        console.log("Hii" + var__ids)
+        console.log("Hii" + var__id)
       })
 
       
