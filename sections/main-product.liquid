@@ -1542,7 +1542,7 @@ data-aos="{{ settings.scroll_animation }}">
     let prod_json = {{ product | json }};
     inputValues.forEach(function(elem, index){
     elem.addEventListener("click", function(){
-      console.log(prod_json)
+      console.log()
 
 
 function processArrayObjects(obj, callback) {
@@ -1556,6 +1556,11 @@ function processArrayObjects(obj, callback) {
     }
   }
 }
+
+
+processArrayObjects(prod_json, (arrayObject) => {
+  console.log("Found array object:", arrayObject);
+  });
       
 var var_id = prod_json.variants[index].id
 var prod_featured_img = prod_json.variants[index].featured_image
