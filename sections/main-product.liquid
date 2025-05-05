@@ -1576,18 +1576,18 @@ function greet(name) {
 inputValuess.forEach(function(myelemt){
   var myInputValue = myelemt.getAttribute('data-value');
     console.log(myInputValue)
-    
-})
-}      
-greet(name);
-
-processArrayObjects(prod_json, (arrayObject) => {
+    processArrayObjects(prod_json, (arrayObject) => {
   console.log("Found array object:", arrayObject);
   var arrayOptions = arrayObject.options
   var arrayNames = greet(name);
   console.log("Hiii", arrayNames);
 
   });
+})
+}      
+greet(name);
+
+
       
 var var_id = prod_json.variants[index].id
 var prod_featured_img = prod_json.variants[index].featured_image.id
