@@ -1544,11 +1544,17 @@ data-aos="{{ settings.scroll_animation }}">
     elem.addEventListener("click", function(){
       console.log(prod_json)
 
-    var inputValuess = document.querySelectorAll('.option-inputs input.input.value:checked'); 
-inputValuess.forEach(function(myelemt){
+    
+var inputValuess = document.querySelectorAll('.option-inputs input.input.value:checked'); 
+
+function myValues(){
+  inputValuess.forEach(function(myelemt){
   var myInputValue = myelemt.getAttribute('data-value');
-    console.log(myInputValue)
+
 })
+}     
+
+      console.log(myValues)
       
 
 
