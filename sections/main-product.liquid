@@ -1543,6 +1543,19 @@ data-aos="{{ settings.scroll_animation }}">
     inputValues.forEach(function(elem, index){
     elem.addEventListener("click", function(){
       console.log(prod_json)
+
+
+function processArrayObjects(obj, callback) {
+  for (const key in obj) {
+    if (Array.isArray(obj[key])) {
+      obj[key].forEach(variants => {
+        if (typeof variants === 'object' && variants !== null) {
+          callback(variants);
+        }
+      });
+    }
+  }
+}
       
 var var_id = prod_json.variants[index].id
 var prod_featured_img = prod_json.variants[index].featured_image
@@ -1574,5 +1587,6 @@ var prod_featured_img = prod_json.variants[index].featured_image
     document.querySelector('.product__section-details__inner.product__section-details__inner--product_buttons input.formVariantId').value = var_id;  
   });
 })
+
   
 </script>
