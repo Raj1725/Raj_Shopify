@@ -1545,7 +1545,7 @@ data-aos="{{ settings.scroll_animation }}">
       console.log(prod_json)
       
 var var_id = prod_json.variants[index].id
-var prod_featured_img = prod_json.images.index
+var prod_featured_img = prod_json.images[index]
       
       function replaceUrlParameter(url, paramName, paramValue) {
         const urlObject = new URL(url);
