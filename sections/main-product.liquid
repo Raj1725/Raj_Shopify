@@ -1591,6 +1591,7 @@ processArrayObjects(prod_json, (arrayObject) => {
       
 var var_id = prod_json.variants[index].id
 var prod_featured_img = prod_json.variants[index].featured_image.id
+      console.log(prod_featured_img);
       
       function replaceUrlParameter(url, paramName, paramValue) {
         const urlObject = new URL(url);
