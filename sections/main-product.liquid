@@ -1572,14 +1572,20 @@ function processArrayObjects(obj, callback) {
 
 var inputValuess = document.querySelectorAll('.option-inputs input.input.value:checked'); 
 
-function greet(name) {      
-inputValuess.forEach(function(myelemt){
-  var myInputValue = myelemt.getAttribute('data-value');
-    console.log(myInputValue)
-    
-})
-}      
-greet(name);
+function greet(name) {
+  let values = [];
+
+  inputValuess.forEach(function(myElement) {
+    let myInputValue = myElement.getAttribute('data-value');
+    values.push(myInputValue); // store the value
+  });
+
+  return values; // return the final array
+}
+
+      let result = greet("John");
+
+console.log(result);
 
 processArrayObjects(prod_json, (arrayObject) => {
   console.log("Found array object:", arrayObject);
