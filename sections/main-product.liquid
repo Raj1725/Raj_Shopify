@@ -1588,7 +1588,10 @@ processArrayObjects(prod_json, (arrayObject) => {
   var arrayOptions = arrayObject.options
   var arrayNames = greet(name);
   console.log("Hiii", arrayNames);
-
+if(arrayOptions == arrayNames){
+  var arrayId = arrayObject.options.id
+  console.log("Hey", arrayId)
+}
   });
       
 var var_id = prod_json.variants[index].id
