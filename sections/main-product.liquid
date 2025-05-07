@@ -1587,7 +1587,7 @@ processArrayObjects(prod_json, (arrayObject) => {
   console.log("Found array object:", arrayObject);
   var arrayOptions = arrayObject.options
   var arrayNames = greet(name);
-  var arrayToString = arrayNames.split(", ");
+  var arrayToString = arrayNames.split('\n');;
   // console.log("Hiii", arrayNames);
 if(arrayOptions === arrayToString){
   var arrayId = arrayObject.id
