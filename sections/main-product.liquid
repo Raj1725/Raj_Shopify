@@ -1572,11 +1572,7 @@ function processArrayObjects(obj, callback) {
 
 var inputValuess = document.querySelectorAll('.option-inputs input.input.value:checked'); 
 
-
-
-processArrayObjects(prod_json, (arrayObject) => {
-
-  function greet(name) {      
+function greet(name) {      
 inputValuess.forEach(function(myelemt){
   var myInputValue = myelemt.getAttribute('data-value');
     console.log(myInputValue)
@@ -1584,7 +1580,8 @@ inputValuess.forEach(function(myelemt){
 })
 }      
 greet(name);
-  
+
+processArrayObjects(prod_json, (arrayObject) => {
   console.log("Found array object:", arrayObject);
   var arrayOptions = arrayObject.options
   var arrayNames = greet(name);
