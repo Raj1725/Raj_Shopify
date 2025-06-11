@@ -330,91 +330,12 @@ data-aos="{{ settings.scroll_animation }}">
                   <div class="product__section-details__inner product__section-details__inner--{{ block.type }}" {{ block.shopify_attributes }}>
                     {%- unless product.has_only_default_variant -%}
                          {% for option in product.options_with_values %}
-
-{%- liquid
-                             assign option_name = option.name | downcase
-  assign color_swatch_options = "color, colour, farbe, couleur, colore, cor" | split: ", "
-  assign current_option = "option" | append: option.position
-  assign other_options = "option1 option2 option3" | remove: current_option | strip | split: " "
-
--%}
                            <div class="updated-variants">
                              <div class="option-name">
                            {{ option.name }}
                              </div>
                              <div class="option-input-block">
                             {% for value in option.values %}
-
-    {%- liquid
-
-      assign image_url = value | handle | append: '.png' | file_url
-      assign css_color = value | split: ' ' | last | handle
-      assign available = false
-
-    -%}
-
-    <!-- Checking Availability -->
-    {%- liquid
-
-      assign available = false
-
-      for variant in product.variants
-        unless variant.available
-          continue
-        endunless
-
-        unless variant[current_option] == value
-          continue
-        endunless
-
-        unless variant[other_options[0]] == current_variant[other_options[0]]
-          continue
-        endunless
-
-        unless variant[other_options[1]] == current_variant[other_options[1]]
-          continue
-        endunless
-
-        assign available = true
-      endfor
-
-    -%}
-
-    <!-- Building Variant Image -->
-    {%- liquid
-
-      for variant in product.variants
-        unless variant[current_option] == value
-          continue
-        endunless
-
-        unless variant[other_options[0]] == current_variant[other_options[0]]
-          continue
-        endunless
-
-        unless variant[other_options[1]] == current_variant[other_options[1]]
-          continue
-        endunless
-
-        if variant.image
-          assign variant_image_url =  variant.image | image_url: width: 150
-        endif
-      endfor
-
-      assign checked = ""
-
-      if current_variant[current_option] == value
-        assign checked = 'checked="checked"'
-      endif
-
-      assign swatch_img = null
-      assign swatch_color_name = value | handle | append: '.png'
-
-      if images[swatch_color_name] != blank
-        assign swatch_img = swatch_color_name | file_url
-      endif
-
-    -%}
                               <div class="option-inputs">
                                 <input type="radio" name="{{ option.name }}" data-position="{{ option.position }}" class="input value" data-value="{{ value }}" data-id="{{ value.id }}" {{ checked }}>
                               <label class="input_label" data-label="{{ value }}" data-label-id="{{ value.id }}">{{ value }}</label> 
