@@ -361,7 +361,7 @@ data-aos="{{ settings.scroll_animation }}">
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const variantData = {{ product.variants | json }};
-    const variantIdInput = document.getElementById("variant-id");
+    const variantIdInput = document.getElementsByClassName("formVariantId");
 
     const optionInputs = document.querySelectorAll(".variant-option");
     optionInputs.forEach(input => {
