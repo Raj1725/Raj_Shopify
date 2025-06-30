@@ -328,38 +328,23 @@ data-aos="{{ settings.scroll_animation }}">
 
                 
                   <div class="product__section-details__inner product__section-details__inner--{{ block.type }}" {{ block.shopify_attributes }}>
-     {%- unless product.has_only_default_variant -%}
-  <div id="custom-variant-selector">
-    {% for option in product.options_with_values %}
-      <div class="updated-variants" data-option-index="{{ forloop.index0 }}">
-        <div class="option-name">{{ option.name }}</div>
-        <div class="option-input-block">
-          {% for value in option.values %}
-            <div class="option-inputs">
-              <input 
-                type="radio"
-                name="option{{ option.position }}"
-                value="{{ value }}"
-                data-option-position="{{ option.position }}"
-                class="variant-option"
-              >
-              <label>{{ value }}</label>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-{% endunless %}
-
-<form action="/cart/add" method="post" enctype="multipart/form-data" id="add-to-cart-form">
-  <input type="hidden" name="id" id="variant-id" value="" />
-  <input type="submit" value="Add to Cart" />
-</form>
-
-
-
-
+                    {%- unless product.has_only_default_variant -%}
+                         {% for option in product.options_with_values %}
+                           <div class="updated-variants">
+                             <div class="option-name">
+                           {{ option.name }}
+                             </div>
+                             <div class="option-input-block">
+                            {% for value in option.values %}
+                              <div class="option-inputs">
+                                <input type="radio" name="{{ option.name }}" data-position="{{ option.position }}" class="input value" data-value="{{ value }}" data-id="{{ value.id }}" {{ checked }}>
+                              <label class="input_label" data-label="{{ value }}" data-label-id="{{ value.id }}">{{ value }}</label> 
+                              </div>
+                            {% endfor %}
+                             </div>
+                           </div>
+                           {% endfor %}
+                        {% endunless %}
                 
                     {% assign product_form_id = 'product-form-' | append: section.id %}
                     {% form 'product', product,
@@ -1469,36 +1454,99 @@ data-aos="{{ settings.scroll_animation }}">
 }
 {% endschema %}
 
-
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const variantData = {{ product.variants | json }};
-    const variantIdInput = document.querySelector(".formVariantId");
 
-    const optionInputs = document.querySelectorAll(".variant-option");
-    optionInputs.forEach(input => {
-      input.addEventListener("change", updateSelectedVariant);
-    });
 
-    function updateSelectedVariant() {
-      const selectedOptions = [];
 
-      for (let i = 1; i <= 3; i++) {
-        const selected = document.querySelector(`input[name="option${i}"]:checked`);
-        if (selected) {
-          selectedOptions.push(selected.value);
+  var inputValues = document.querySelectorAll('.option-inputs input.input.value');
+ 
+    let prod_json = {{ product | json }};
+    inputValues.forEach(function(elem, index){
+    elem.addEventListener("click", function(){
+      console.log(prod_json)
+
+    
+// var inputValuess = document.querySelectorAll('.option-inputs input.input.value:checked'); 
+
+// function greet(name) {      
+// inputValuess.forEach(function(myelemt){
+//   var myInputValue = myelemt.getAttribute('data-value');
+//     console.log(myInputValue)
+    
+// })
+// }      
+// greet(name);
+  
+
+
+function processArrayObjects(obj, callback) {
+  for (const key in obj) {
+    if (Array.isArray(obj[key])) {
+      obj[key].forEach(variants => {
+        if (typeof variants === 'object' && variants !== null) {
+          callback(variants);
         }
-      }
+      });
+    }
+  }
+}
 
-      const matchedVariant = variantData.find(variant => {
-        return selectedOptions.every((opt, index) => variant[`option${index + 1}`] === opt);
+var inputValuess = document.querySelectorAll('.option-inputs input.input.value:checked'); 
+
+function greet(name) {
+  let values = [];
+
+  inputValuess.forEach(function(myElement) {
+    let myInputValue = myElement.getAttribute('data-value');
+    values.push(myInputValue); // store the value
+  });
+
+  return values; // return the final array
+}
+
+processArrayObjects(prod_json, (arrayObject) => {
+  console.log("Found array object:", arrayObject);
+  var arrayOptions = arrayObject.options
+  var arrayNames = greet(name);
+  var arrayToString = arrayNames.split('\n');
+  // console.log("Hiii", arrayNames);
+if(arrayOptions === arrayToString){
+  var arrayId = arrayObject.id
+  console.log("Hey", arrayId)
+}
+  });
+      
+var var_id = prod_json.variants[index].id
+var prod_featured_img = prod_json.media[index].id
+      console.log(prod_featured_img);
+      
+      function replaceUrlParameter(url, paramName, paramValue) {
+        const urlObject = new URL(url);
+        const params = new URLSearchParams(urlObject.search);
+        params.set(paramName, paramValue);
+        urlObject.search = params.toString();
+        return urlObject.toString();
+      }
+      
+      const newTitle = [];
+      let prod_url = window.location.href + "?variant=" + var_id;
+      let newUrl = replaceUrlParameter(prod_url, "variant", var_id);
+      console.log(newUrl); 
+      window.history.replaceState(null, newTitle, newUrl);
+      
+      document.querySelectorAll('.product__gallery--container.is_sticky .slides.product-image-container .image-slide.carousel-cell').forEach(function(elem) {
+          
+
+      if (elem.getAttribute('data-image-id') == prod_featured_img) {
+          elem.classList.add('is-selected');
+      }else{
+          elem.classList.remove('is-selected');
+        }
       });
 
-      if (matchedVariant) {
-        variantIdInput.value = matchedVariant.id;
-      } else {
-        variantIdInput.value = "";
-      }
-    }
+    document.querySelector('.product__section-details__inner.product__section-details__inner--product_buttons input.formVariantId').value = var_id;  
   });
+})
+
+  
 </script>
